@@ -16,32 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `reunion`
+-- Table structure for table `member_proyect`
 --
 
-DROP TABLE IF EXISTS `reunion`;
+DROP TABLE IF EXISTS `member_proyect`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `reunion` (
-  `id_reunion` int(11) NOT NULL,
-  `boss` int(11) NOT NULL,
-  `supervisor` int(11) NOT NULL,
-  `fecha_agendada` datetime NOT NULL,
-  PRIMARY KEY (`id_reunion`),
-  KEY `boss_idx` (`boss`),
-  KEY `supervisor_idx` (`supervisor`),
-  CONSTRAINT `id_boss` FOREIGN KEY (`boss`) REFERENCES `boss` (`id_participante`),
-  CONSTRAINT `supervisor` FOREIGN KEY (`supervisor`) REFERENCES `supervisor` (`id_supervisor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `member_proyect` (
+  `id_proyecto` int(11) NOT NULL,
+  `id_participante` int(11) NOT NULL,
+  `jefe` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id_proyecto`,`id_participante`),
+  KEY `participanteFK_idx` (`id_participante`),
+  CONSTRAINT `participanteFK` FOREIGN KEY (`id_participante`) REFERENCES `participante` (`id_participante`),
+  CONSTRAINT `proyectoFK` FOREIGN KEY (`id_proyecto`) REFERENCES `proyecto` (`id_proyecto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reunion`
+-- Dumping data for table `member_proyect`
 --
 
-LOCK TABLES `reunion` WRITE;
-/*!40000 ALTER TABLE `reunion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reunion` ENABLE KEYS */;
+LOCK TABLES `member_proyect` WRITE;
+/*!40000 ALTER TABLE `member_proyect` DISABLE KEYS */;
+/*!40000 ALTER TABLE `member_proyect` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-29 18:46:08
+-- Dump completed on 2019-07-04 16:56:05

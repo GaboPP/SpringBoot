@@ -23,15 +23,12 @@ DROP TABLE IF EXISTS `mentor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `mentor` (
-  `mentor_id` int(11) NOT NULL AUTO_INCREMENT,
-  `proyecto` int(11) NOT NULL,
-  `nombre` varchar(200) DEFAULT NULL,
-  `permisos` int(11) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  PRIMARY KEY (`mentor_id`),
-  KEY `proyecto_idx` (`proyecto`),
-  CONSTRAINT `proyecto` FOREIGN KEY (`proyecto`) REFERENCES `proyecto` (`id_proyecto`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_mentor` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `experticia` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_mentor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +37,7 @@ CREATE TABLE `mentor` (
 
 LOCK TABLES `mentor` WRITE;
 /*!40000 ALTER TABLE `mentor` DISABLE KEYS */;
+INSERT INTO `mentor` VALUES (1,'Abdelito','a@a.cl','Tu Vieja XD');
 /*!40000 ALTER TABLE `mentor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-29 18:46:07
+-- Dump completed on 2019-07-04 16:56:05

@@ -1,8 +1,8 @@
 package com.isw.server.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.isw.server.models.participante;
+import com.isw.server.models.Participante;
 
-public interface participanteRepo extends JpaRepository<participante, Integer> {
+public interface participanteRepo extends JpaRepository<Participante, Integer> {
 
 }
