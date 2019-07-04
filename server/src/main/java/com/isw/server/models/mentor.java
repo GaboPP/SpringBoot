@@ -1,7 +1,5 @@
 package com.isw.server.models;
 
-
-
 public class mentor {
     private int mentor_id;
     public int proyecto;
