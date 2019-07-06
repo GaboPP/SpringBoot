@@ -15,11 +15,15 @@ public class Proyecto{
     @Column(name = "id_proyecto")
     private int id_proyecto;
     @Column(name = "id_comite", nullable = true)
-    private int id_comite;
+    private Integer id_comite;
     @Column(name = "id_mentor", nullable = true)
-    private int id_mentor;
+    private Integer id_mentor;
     @Column(name = "id_jefe", nullable = true)
-    private int id_jefe;
+    private Integer id_jefe;
+    @Column(name = "nombre_proyecto", nullable = false)
+    private String nombre_proyecto;
+    @Column(name = "descripcion", nullable = false)
+    private String descripcion;
     @Column(name = "state", nullable = false)
     private int state; // Donde 1: espera, 2: aprobado, 3: Rechazado
     @Column(name = "tipo", nullable = false)
@@ -27,6 +31,70 @@ public class Proyecto{
 
     public Proyecto() {
         this.state = 1;
+    }
+
+    public int getId_proyecto() {
+        return id_proyecto;
+    }
+
+    public void setId_proyecto(int id_proyecto) {
+        this.id_proyecto = id_proyecto;
+    }
+
+    public Integer getId_comite() {
+        return id_comite;
+    }
+
+    public void setId_comite(Integer id_comite) {
+        this.id_comite = id_comite;
+    }
+
+    public Integer getId_mentor() {
+        return id_mentor;
+    }
+
+    public void setId_mentor(Integer id_mentor) {
+        this.id_mentor = id_mentor;
+    }
+
+    public Integer getId_jefe() {
+        return id_jefe;
+    }
+
+    public void setId_jefe(Integer id_jefe) {
+        this.id_jefe = id_jefe;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getNombre_proyecto() {
+        return nombre_proyecto;
+    }
+
+    public void setNombre_proyecto(String nombre_proyecto) {
+        this.nombre_proyecto = nombre_proyecto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
 
