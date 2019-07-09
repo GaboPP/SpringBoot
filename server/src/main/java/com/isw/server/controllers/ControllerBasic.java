@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,7 +23,7 @@ import com.isw.server.repository.participanteRepo;
 import com.isw.server.repository.proyectoRepo;
 
 @Controller //Así se define un controlador
-@RequestMapping("/data") //Para definirlo como endpoint
+// @RequestMapping("/data") //Para definirlo como endpoint
 public class ControllerBasic {
 
     // @GetMapping(path = {"/post", "/"}) // le digo a Spring boot que es un methodo que puede ser accesado mediante POST
@@ -61,26 +64,36 @@ public class ControllerBasic {
         participanteRepo.save(Participante);
         return participanteRepo.findAll();
     }
-    
-    
     @GetMapping(value = "/getProyect")
-    public List<proyecto> getProyect() {
-        return proyectoRepo.findAll();
+    public List<proyecto> getProyect(int id) {
+        return proyectoRepo.findAll().stream().filter( (p) -> { return p.getId_proyecto() == id;}).collect(Collectors.toList());
     }
     
     @GetMapping("/proyect_detail/{id}")
     public ModelAndView getproyect_detail(@PathVariable(required = true, name = "id") int id
     ){        
         ModelAndView modelAndView = new ModelAndView("proyect_details/proyect_detail");
-        List<proyecto> proyectos = this.getProyect().stream().filter( (p) -> { return p.getId_proyecto() == id;}).collect(Collectors.toList());
-        modelAndView.addObject("post", proyectos.get(0));
-        return modelAndView.addObject("proyecto", new proyecto());
+        List<proyecto> proyectos = this.getProyect(id);
+        return modelAndView.addObject("proyecto", proyectos.get(0));
     }
-    @PostMapping("/add_proyect_detail")
-    public String add_proyect_detail(proyecto post_evaluation, Model model) {
-        List<proyecto> posts = this.getProyect();
-        posts.add(post_evaluation);
-        model.addAttribute("posts", posts);
+    @RequestMapping(value = "proyect_detail/update_proyect_detail/{id}", method = { RequestMethod.GET, RequestMethod.POST })
+    public String update_proyect_detail(@ModelAttribute proyecto proyecto, @PathVariable(required = true, name = "id") int id) {
+        List<proyecto> proyecto_bd = this.getProyect(id);
+        
+        proyecto.setId_mentor(proyecto_bd.get(0).getId_mentor());
+        if(proyecto.getState() == 3) {
+            proyecto.setBoss(1); //FIX! jefe
+        } else {
+            proyecto.setBoss(proyecto_bd.get(0).getBoss());
+        }
+
+
+
+        proyecto.setTipo(proyecto_bd.get(0).getTipo());
+        proyecto.setNombre(proyecto_bd.get(0).getNombre());
+        proyecto.setDetalle(proyecto_bd.get(0).getDetalle());
+        proyecto.setId_proyecto(id);
+        proyectoRepo.save(proyecto);
         return "index";
     }
 

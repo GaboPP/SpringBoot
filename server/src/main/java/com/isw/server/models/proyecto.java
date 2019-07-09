@@ -12,21 +12,21 @@ public class proyecto{
     @Column(name = "id_proyecto")
     private int id_proyecto;
     @Column(name = "nombre", length = 45) 
-    public String nombre;
+    private String nombre;
     @Column(name = "id_mentor", nullable = true)
-    public Integer id_mentor;
+    private Integer id_mentor;
     @Column(name = "id_comite", nullable = true)
-    public Integer id_comite;
+    private Integer id_comite;
     @Column(name = "id_jefe", nullable = true)
-    public Integer boss;
+    private Integer boss;
     @Column(name = "tipo")
-    public String tipo; // Externo o  interno
+    private String tipo; // Externo o  interno
     @Column(name = "state")  
-    public int state; // Donde 1: espera, 2: aprobado, 3: Rechazado
+    private int state; // Donde 1: espera, 2: aprobado, 3: Rechazado
     @Column(name = "comentario", length = 500) 
-    public String comentario;
-    @Column(name = "detalle", length = 1000) 
-    public String detalle;
+    private String comentario;
+    @Column(name = "detalle")
+    private String detalle;
 
     public int getId_proyecto() {
         return id_proyecto;
@@ -34,37 +34,6 @@ public class proyecto{
 
     public void setId_proyecto(int id_proyecto) {
         this.id_proyecto = id_proyecto;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public int getBoss() {
-        return boss;
-    }
-
-    public void setBoss(int boss) {
-        this.boss = boss;
-    }
-    public int getId_comite() {
-        return id_comite;
-    }
-
-    public void setId_comite(int id_comite) {
-        this.id_comite = id_comite;
-    }
-    
-    public int getId_mentor() {
-        return id_mentor;
-    }
-
-    public void setId_mentor(int id_mentor) {
-        this.id_mentor = id_mentor;
     }
 
     public String getNombre() {
@@ -75,12 +44,24 @@ public class proyecto{
         this.nombre = nombre;
     }
 
+    public Integer getId_mentor() {
+        return id_mentor;
+    }
+
     public void setId_mentor(Integer id_mentor) {
         this.id_mentor = id_mentor;
     }
 
+    public Integer getId_comite() {
+        return id_comite;
+    }
+
     public void setId_comite(Integer id_comite) {
         this.id_comite = id_comite;
+    }
+
+    public Integer getBoss() {
+        return boss;
     }
 
     public void setBoss(Integer boss) {
@@ -95,11 +76,27 @@ public class proyecto{
         this.tipo = tipo;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
     public String getComentario() {
         return comentario;
     }
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 }

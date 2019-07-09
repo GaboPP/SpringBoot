@@ -46,7 +46,7 @@
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">Nombre del Proyecto</h6>
-              <small class="text-muted"><p th:text="${post.nombre}"></p></small>
+              <small class="text-muted"><p th:text="${proyecto.nombre}"></p></small>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -58,13 +58,13 @@
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">Detalles</h6>
-              <small class="text-muted"><p th:text="${post.detalle}"></p></small>
+              <small class="text-muted"><p th:text="${proyecto.detalle}"></p></small>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">tipo</h6>
-              <small class="text-muted"><p th:text="${post.tipo}"></p></small>
+              <small class="text-muted"><p th:text="${proyecto.tipo}"></p></small>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between">
@@ -75,7 +75,7 @@
       </div>
       <div class="col-md-6 order-md-2">
         <h4 class="mb-3">Evaluación Proyecto</h4>
-        <form th:action="@{data/evaluate_proyect}" method="POST" th:object="${proyecto}" class="needs-validation" novalidate="">
+        <form th:action="@{update_proyect_detail/{id}(id=${proyecto.id_proyecto})}" method="POST" th:object="${proyecto}" class="needs-validation" novalidate="">
           <div class="row">
             <div class="col-md-12 mb-12">
               <div class="form-group">
@@ -103,11 +103,25 @@
             </div>
           </div>
           <hr class="mb-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Mentor</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="Camilo">Hardcoded Camilo</option>
+              <option value="Luchin">Hardcoded Luchin</option>
+              <option value="Rivera">Hardcoded Rivera</option>
+              <option th:each="user : ${users}"></option>
+            </select>
+          </div>
+          <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar Evaluación</button>
         </form>
       </div>
     </div>
   </div>
+  <br>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
