@@ -1,6 +1,5 @@
 package com.isw.server.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,7 +73,7 @@ public class ControllerBasic {
     ){        
         ModelAndView modelAndView = new ModelAndView("proyect_details/proyect_detail");
         List<proyecto> proyectos = this.getProyect().stream().filter( (p) -> { return p.getId_proyecto() == id;}).collect(Collectors.toList());
-        System.out.println(proyectos.get(1));
+        System.out.println(proyectos.get(0));
         modelAndView.addObject("post", proyectos.get(0));
         return modelAndView.addObject("proyecto", new proyecto());
     }
