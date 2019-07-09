@@ -35,8 +35,8 @@
           </a>
         </div>
         <div class="col-sm-7">
-          <h3 th:text="${proyecto.nombre_proyecto}">Project One</h3>
-          <p th:text="${proyecto.descripcion}">Description</p>
+          <h3 th:text="${proyecto.nombre}">Project One</h3>
+          <p th:text="${proyecto.detalle}">Description</p>
           <p th:switch="${proyecto.state}">
             <span th:case="'1'">En espera de revision</span>
             <span th:case="'2'">Aprobado</span>
@@ -46,7 +46,7 @@
             <span th:if="${proyecto.tipo == '1'}">Proyecto Interno</span>
             <span th:unless="${proyecto.tipo == '1'}">Proyecto Externo</span>
           </p>
-          <a class="btn btn-primary" th:href="@{proyecto_detail/} + ${proyecto.id_proyecto}">View Project</a>
+          <a class="btn btn-primary" th:href="@{proyectos/proyect_detail/} + ${proyecto.id_proyecto}">View Project</a>
         </div>
       </div>
       <!-- /.row -->
