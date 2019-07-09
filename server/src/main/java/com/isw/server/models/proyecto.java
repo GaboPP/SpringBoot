@@ -3,35 +3,30 @@ package com.isw.server.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "proyecto")
-public class Proyecto{
+public class proyecto{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "id_proyecto")
     private int id_proyecto;
-    @Column(name = "id_comite", nullable = true)
-    private Integer id_comite;
+    @Column(name = "nombre", length = 45) 
+    public String nombre;
     @Column(name = "id_mentor", nullable = true)
-    private Integer id_mentor;
+    public Integer id_mentor;
+    @Column(name = "id_comite", nullable = true)
+    public Integer id_comite;
     @Column(name = "id_jefe", nullable = true)
-    private Integer id_jefe;
-    @Column(name = "nombre_proyecto", nullable = false)
-    private String nombre_proyecto;
-    @Column(name = "descripcion", nullable = false)
-    private String descripcion;
-    @Column(name = "state", nullable = false)
-    private int state; // Donde 1: espera, 2: aprobado, 3: Rechazado
-    @Column(name = "tipo", nullable = false)
-    private String tipo; // Externo o interno
-
-    public Proyecto() {
-        this.state = 1;
-    }
+    public Integer boss;
+    @Column(name = "tipo")
+    public String tipo; // Externo o  interno
+    @Column(name = "state")  
+    public int state; // Donde 1: espera, 2: aprobado, 3: Rechazado
+    @Column(name = "comentario", length = 500) 
+    public String comentario;
+    @Column(name = "detalle", length = 1000) 
+    public String detalle;
 
     public int getId_proyecto() {
         return id_proyecto;
@@ -39,30 +34,6 @@ public class Proyecto{
 
     public void setId_proyecto(int id_proyecto) {
         this.id_proyecto = id_proyecto;
-    }
-
-    public Integer getId_comite() {
-        return id_comite;
-    }
-
-    public void setId_comite(Integer id_comite) {
-        this.id_comite = id_comite;
-    }
-
-    public Integer getId_mentor() {
-        return id_mentor;
-    }
-
-    public void setId_mentor(Integer id_mentor) {
-        this.id_mentor = id_mentor;
-    }
-
-    public Integer getId_jefe() {
-        return id_jefe;
-    }
-
-    public void setId_jefe(Integer id_jefe) {
-        this.id_jefe = id_jefe;
     }
 
     public int getState() {
@@ -73,6 +44,49 @@ public class Proyecto{
         this.state = state;
     }
 
+    public int getBoss() {
+        return boss;
+    }
+
+    public void setBoss(int boss) {
+        this.boss = boss;
+    }
+    public int getId_comite() {
+        return id_comite;
+    }
+
+    public void setId_comite(int id_comite) {
+        this.id_comite = id_comite;
+    }
+    
+    public int getId_mentor() {
+        return id_mentor;
+    }
+
+    public void setId_mentor(int id_mentor) {
+        this.id_mentor = id_mentor;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setId_mentor(Integer id_mentor) {
+        this.id_mentor = id_mentor;
+    }
+
+    public void setId_comite(Integer id_comite) {
+        this.id_comite = id_comite;
+    }
+
+    public void setBoss(Integer boss) {
+        this.boss = boss;
+    }
+
     public String getTipo() {
         return tipo;
     }
@@ -81,21 +95,11 @@ public class Proyecto{
         this.tipo = tipo;
     }
 
-    public String getNombre_proyecto() {
-        return nombre_proyecto;
+    public String getComentario() {
+        return comentario;
     }
 
-    public void setNombre_proyecto(String nombre_proyecto) {
-        this.nombre_proyecto = nombre_proyecto;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 }
-
-

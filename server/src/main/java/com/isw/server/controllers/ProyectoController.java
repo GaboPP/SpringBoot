@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.isw.server.models.Proyecto;
+import com.isw.server.models.proyecto;
 import java.util.*;
 
 @Controller
@@ -19,7 +19,7 @@ public class ProyectoController{
     
     @GetMapping(path = {""})
     public String proyectos(Model model){
-        List<Proyecto> proyectos = proyectoRepo.findAll();
+        List<proyecto> proyectos = proyectoRepo.findAll();
         model.addAttribute("proyectos", proyectos);
         return "proyectos";
     }
