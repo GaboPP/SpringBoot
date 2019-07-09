@@ -46,7 +46,7 @@
             <span th:if="${proyecto.tipo == '1'}">Proyecto Interno</span>
             <span th:unless="${proyecto.tipo == '1'}">Proyecto Externo</span>
           </p>
-          <a class="btn btn-primary" href="#">View Project</a>
+          <a class="btn btn-primary" th:href="@{proyecto_detail/} + ${proyecto.id_proyecto}">View Project</a>
         </div>
       </div>
       <!-- /.row -->
