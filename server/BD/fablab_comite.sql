@@ -16,29 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `mentor`
+-- Table structure for table `comite`
 --
 
-DROP TABLE IF EXISTS `mentor`;
+DROP TABLE IF EXISTS `comite`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `mentor` (
-  `id_mentor` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comite` (
+  `id_comite` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `experticia` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_mentor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id_comite`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mentor`
+-- Dumping data for table `comite`
 --
 
-LOCK TABLES `mentor` WRITE;
-/*!40000 ALTER TABLE `mentor` DISABLE KEYS */;
-INSERT INTO `mentor` VALUES (1,'Abdelito','a@a.cl','Tu Vieja XD');
-/*!40000 ALTER TABLE `mentor` ENABLE KEYS */;
+LOCK TABLES `comite` WRITE;
+/*!40000 ALTER TABLE `comite` DISABLE KEYS */;
+INSERT INTO `comite` VALUES (1,'Camilo','camilove@gmail.com');
+/*!40000 ALTER TABLE `comite` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

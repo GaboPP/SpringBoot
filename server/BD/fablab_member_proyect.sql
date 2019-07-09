@@ -16,29 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `mentor`
+-- Table structure for table `member_proyect`
 --
 
-DROP TABLE IF EXISTS `mentor`;
+DROP TABLE IF EXISTS `member_proyect`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `mentor` (
-  `id_mentor` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `experticia` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_mentor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `member_proyect` (
+  `id_proyecto` int(11) NOT NULL,
+  `id_participante` int(11) NOT NULL,
+  `jefe` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id_proyecto`,`id_participante`),
+  KEY `participanteFK_idx` (`id_participante`),
+  CONSTRAINT `participanteFK` FOREIGN KEY (`id_participante`) REFERENCES `participante` (`id_participante`),
+  CONSTRAINT `proyectoFK` FOREIGN KEY (`id_proyecto`) REFERENCES `proyecto` (`id_proyecto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mentor`
+-- Dumping data for table `member_proyect`
 --
 
-LOCK TABLES `mentor` WRITE;
-/*!40000 ALTER TABLE `mentor` DISABLE KEYS */;
-INSERT INTO `mentor` VALUES (1,'Abdelito','a@a.cl','Tu Vieja XD');
-/*!40000 ALTER TABLE `mentor` ENABLE KEYS */;
+LOCK TABLES `member_proyect` WRITE;
+/*!40000 ALTER TABLE `member_proyect` DISABLE KEYS */;
+/*!40000 ALTER TABLE `member_proyect` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

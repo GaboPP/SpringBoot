@@ -23,17 +23,19 @@ DROP TABLE IF EXISTS `proyecto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `proyecto` (
-  `id_proyecto` int(11) NOT NULL,
+  `id_proyecto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_comite` int(11) DEFAULT NULL,
+  `id_mentor` int(11) DEFAULT NULL,
+  `id_jefe` int(11) DEFAULT NULL,
   `state` int(11) NOT NULL,
-  `task` int(11) DEFAULT NULL,
-  `avance` int(11) DEFAULT NULL,
-  `boss` int(11) NOT NULL,
-  `miembro` int(11) NOT NULL,
-  `tipo` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_proyecto`),
-  KEY `boss_idx` (`boss`),
-  CONSTRAINT `boss` FOREIGN KEY (`boss`) REFERENCES `boss` (`id_participante`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `comiteFK_idx` (`id_comite`),
+  KEY `mentorFK_idx` (`id_mentor`),
+  KEY `jefeFK_idx` (`id_jefe`),
+  CONSTRAINT `comiteFK` FOREIGN KEY (`id_comite`) REFERENCES `comite` (`id_comite`) ON DELETE SET NULL,
+  CONSTRAINT `jefeFK` FOREIGN KEY (`id_jefe`) REFERENCES `participante` (`id_participante`) ON DELETE SET NULL,
+  CONSTRAINT `mentorFK` FOREIGN KEY (`id_mentor`) REFERENCES `mentor` (`id_mentor`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +44,7 @@ CREATE TABLE `proyecto` (
 
 LOCK TABLES `proyecto` WRITE;
 /*!40000 ALTER TABLE `proyecto` DISABLE KEYS */;
+INSERT INTO `proyecto` VALUES (1,NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `proyecto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-29 18:46:09
+-- Dump completed on 2019-07-03 17:47:51
