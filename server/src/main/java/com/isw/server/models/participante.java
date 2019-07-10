@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "participante")
-public class Participante {
+public class participante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_participante")
@@ -21,7 +21,7 @@ public class Participante {
     @Column(name = "permisos")     
     private int permisos; // 0: nulos, 1: básicos, 2:Jefe proyecto, 3: Mentor, 4: Supervisor
 
-    public Participante() {
+    public participante() {
         
     }
 

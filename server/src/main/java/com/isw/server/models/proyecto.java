@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "proyecto")
-public class Proyecto{
+public class proyecto{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_proyecto")
@@ -29,7 +29,7 @@ public class Proyecto{
     @Column(name = "tipo", nullable = false)
     private String tipo; // Externo o interno
 
-    public Proyecto() {
+    public proyecto() {
         this.state = 1;
     }
 
