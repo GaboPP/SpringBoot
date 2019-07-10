@@ -21,10 +21,19 @@ public class ProyectoController{
 
     @Autowired
     ProyectoRepo proyectoRepo;
-    
+
     @GetMapping(path = {""})
     public String proyectos(Model model){
-        List<proyecto> proyectos = proyectoRepo.findAll();
+        List<proyecto> proyects = proyectoRepo.findAll();
+        List<proyecto> proyectos = proyects.stream().filter( (p) -> { return p.getState() != 1;}).collect(Collectors.toList());
+        model.addAttribute("proyectos", proyectos);
+        return "proyectos";
+    }
+    
+    @GetMapping(path = {"/evaluar"})
+    public String evaluar(Model model){
+        List<proyecto> proyects = proyectoRepo.findAll();
+        List<proyecto> proyectos = proyects.stream().filter( (p) -> { return p.getState() == 1;}).collect(Collectors.toList());
         model.addAttribute("proyectos", proyectos);
         return "proyectos";
     }
