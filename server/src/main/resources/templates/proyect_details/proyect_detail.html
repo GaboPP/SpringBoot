@@ -13,7 +13,7 @@
   <title>Proyecto detalle</title>
 </head>
 
-<body>
+<body style="background: url('../../static/images/fondo.svg') no-repeat;background-size: cover;">
   <div th:insert="navbar :: navigationBar"></div>
   <div class="container">
     <div class="py-5 text-center">
@@ -33,25 +33,28 @@
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">Nombre del Proyecto</h6>
-              <small class="text-muted"><p th:text="${post.nombre}"></p></small>
+              <small class="text-muted"><p th:text="${proyecto.nombre}"></p></small>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">Participante</h6>
-              <small class="text-muted">Don homero J. sampson</small>
+              <small class="text-muted" th:text="${participante.Name}"></small>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">Detalles</h6>
-              <small class="text-muted"><p th:text="${post.detalle}"></p></small>
+              <small class="text-muted"><p th:text="${proyecto.detalle}"></p></small>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">tipo</h6>
-              <small class="text-muted"><p th:text="${post.tipo}"></p></small>
+              <small class="text-muted">
+                <span th:if="${proyecto.tipo} == 1"><p th:text="Interno">I</p></span>
+                <span th:if="${proyecto.tipo} == 0"><p th:text="Externo">I</p></span>
+              </small>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between">
@@ -62,7 +65,7 @@
       </div>
       <div class="col-md-6 order-md-2">
         <h4 class="mb-3">Evaluación Proyecto</h4>
-        <form th:action="@{data/evaluate_proyect}" method="POST" th:object="${proyecto}" class="needs-validation" novalidate="">
+        <form th:action="@{update_proyect_detail/{id}(id=${proyecto.id_proyecto})}" method="POST" th:object="${proyecto}" class="needs-validation" novalidate="">
           <div class="row">
             <div class="col-md-12 mb-12">
               <div class="form-group">
@@ -90,12 +93,22 @@
             </div>
           </div>
           <hr class="mb-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Mentor</label>
+            </div>
+            <select th:field="*{id_mentor}" class="custom-select" id="inputGroupSelect01">
+              <option th:value="${Null}" selected>Choose...</option>
+              <option th:each="mentor : ${mentores}" th:value="${mentor.id_mentor}" th:text="${mentor.Name}"></option>
+            </select>
+          </div>
+          <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar Evaluación</button>
-          <br>
         </form>
       </div>
     </div>
   </div>
+  <br>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
