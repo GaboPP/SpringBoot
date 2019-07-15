@@ -12,6 +12,7 @@ public class proyecto{
     @Column(name = "id_proyecto")
     private int id_proyecto;
     @Column(name = "nombre", length = 45) 
+  
     private String nombre;
     @Column(name = "id_mentor", nullable = true)
     private Integer id_mentor;
@@ -27,7 +28,10 @@ public class proyecto{
     private String comentario;
     @Column(name = "detalle")
     private String detalle;
-
+    
+    public proyecto() {
+        this.state = 1;
+    }
     public int getId_proyecto() {
         return id_proyecto;
     }
@@ -35,7 +39,7 @@ public class proyecto{
     public void setId_proyecto(int id_proyecto) {
         this.id_proyecto = id_proyecto;
     }
-
+  
     public String getNombre() {
         return nombre;
     }
@@ -62,8 +66,6 @@ public class proyecto{
 
     public Integer getBoss() {
         return boss;
-    }
-
     public void setBoss(Integer boss) {
         this.boss = boss;
     }
@@ -75,7 +77,6 @@ public class proyecto{
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
     public int getState() {
         return state;
     }
@@ -83,7 +84,6 @@ public class proyecto{
     public void setState(int state) {
         this.state = state;
     }
-
     public String getComentario() {
         return comentario;
     }
@@ -91,7 +91,6 @@ public class proyecto{
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
     public String getDetalle() {
         return detalle;
     }

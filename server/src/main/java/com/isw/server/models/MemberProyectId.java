@@ -28,7 +28,6 @@ public class MemberProyectId implements Serializable{
     public void setId_proyecto(int id_proyecto) {
         this.id_proyecto = id_proyecto;
     }
-
     @Override
     public int hashCode() {
         final int prime = 31;

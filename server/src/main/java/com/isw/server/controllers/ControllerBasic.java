@@ -29,7 +29,6 @@ import com.isw.server.repository.proyectoRepo;
 @Controller // Así se define un controlador
 // @RequestMapping("/data") //Para definirlo como endpoint
 public class ControllerBasic {
-
     // @GetMapping(path = {"/post", "/"}) // le digo a Spring boot que es un methodo
     // que puede ser accesado mediante POST
 
@@ -127,5 +126,4 @@ public class ControllerBasic {
         proyectoRepo.save(proyecto);
         return "index";
     }
-
 }
