@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@Table(name = "proyecto")
 public class proyecto{
     @Id
     @GeneratedValue
@@ -28,6 +29,10 @@ public class proyecto{
     @Column(name = "detalle", length = 1000) 
     public String detalle;
 
+    public proyecto() {
+        this.state = 1;
+    }
+  
     public int getId_proyecto() {
         return id_proyecto;
     }
