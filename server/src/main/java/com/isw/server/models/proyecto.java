@@ -20,7 +20,7 @@ public class proyecto{
     @Column(name = "id_jefe", nullable = true)
     private Integer boss;
     @Column(name = "tipo")
-    private String tipo; // Externo o  interno
+    private String tipo; // 0:Externo o  1:interno
     @Column(name = "state")  
     private int state; // Donde 1: espera, 2: aprobado, 3: Rechazado
     @Column(name = "comentario", length = 500) 
