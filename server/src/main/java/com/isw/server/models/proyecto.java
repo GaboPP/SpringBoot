@@ -66,6 +66,7 @@ public class proyecto{
 
     public Integer getBoss() {
         return boss;
+    }
     public void setBoss(Integer boss) {
         this.boss = boss;
     }

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.isw.server.models.proyecto;
-import com.isw.server.repository.ProyectoRepo;
+import com.isw.server.repository.proyectoRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProyectoController{
 
     @Autowired
-    ProyectoRepo proyectoRepo;
+    proyectoRepo proyectoRepo;
 
     @GetMapping(path = {""})
     public String proyectos(Model model){
