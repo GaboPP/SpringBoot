@@ -14,20 +14,7 @@
 </head>
 
 <body style="background: url('../../static/images/fondo.svg') no-repeat;background-size: cover;">
-  <ul class="nav" style="background-color:rgba(105, 105, 105, 0.822)">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Cambiar</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Por</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">LA DEL</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">YANCITO</a>
-    </li>
-  </ul>
+  <div th:insert="navbar :: navigationBar"></div>
   <div class="container">
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" th:src="@{/images/reports.png}" src="../../static/images/reports.png" alt="" width="128" height="128">

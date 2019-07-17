@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +28,6 @@ import com.isw.server.repository.proyectoRepo;
 @Controller // Así se define un controlador
 // @RequestMapping("/data") //Para definirlo como endpoint
 public class ControllerBasic {
-
     // @GetMapping(path = {"/post", "/"}) // le digo a Spring boot que es un methodo
     // que puede ser accesado mediante POST
 
@@ -127,5 +125,4 @@ public class ControllerBasic {
         proyectoRepo.save(proyecto);
         return "index";
     }
-
 }

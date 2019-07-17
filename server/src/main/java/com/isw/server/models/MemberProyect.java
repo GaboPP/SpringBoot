@@ -18,7 +18,6 @@ public class MemberProyect{
     private int id_participante;
     @Column(name = "jefe")
     private int jefe;
-
     public int getId_proyecto() {
         return id_proyecto;
     }

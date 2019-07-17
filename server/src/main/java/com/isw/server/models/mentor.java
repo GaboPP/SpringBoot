@@ -20,7 +20,7 @@ public class mentor {
     private String email;
     @Column(name = "experticia")
     public String experticia;
-
+  
     public int getId_mentor() {
         return id_mentor;
     }
