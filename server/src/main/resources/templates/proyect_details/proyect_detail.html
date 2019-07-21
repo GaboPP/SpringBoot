@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="../proyect_details/proyect_detail.css">
+  <link rel="stylesheet" href="../../static/css/proyect_detail.css" th:href="@{/css/proyect_detail.css}">
   <title>Proyecto detalle</title>
 </head>
 
-<body style="background: url('../../static/images/fondo.svg') no-repeat;background-size: cover;">
+<body th:style="'background: url('+ @{/images/fondo.svg}+') no-repeat;background-size: cover;'">
   <div th:insert="navbar :: navigationBar"></div>
   <div class="container">
     <div class="py-5 text-center">

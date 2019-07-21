@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link href="../../static/css/login.css" th:href="@{/css/login.css}" type="text/css" rel="stylesheet">
+   <title>Proyecto detalle</title>
+   <style>
+      .bd-placeholder-img {
+         font-size: 1.125rem;
+         text-anchor: middle;
+         -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+      }
+
+      @media (min-width: 768px) {
+         .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+         }
+      }
+   </style>
+</head>
+
+<body th:style="'background: url('+ @{/images/}+') no-repeat;background-size: cover;'" class="text-center"
+   data-gr-c-s-loaded="true">
+   <div class="row" th:style="'width:100%'">
+      <br>
+      <div class="col-12 row" th:if="${#request.getParameter('error') == 'true'}">
+            <div class="col-4"></div>
+            <div class="col-4 card shadow-sm"
+                  style="color:red;margin:10px 0px;">
+               Login Failed!!!<br />
+               Reason :
+               <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+                  th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                      Static summary
+               </span>           
+            </div>
+            <div class="col-4"></div>
+      </div>
+      <form class="needs-validation form-signin was-validated col-12"  name='f' th:action="@{/j_spring_security_check}" method='POST'>
+         <img class="mb-4" th:src="@{/images/fablab.png}" src="../../static/images/fablab.png" alt="" width="auto"
+            height="72">
+        <h1 class="h3 mb-1 font-weight-normal">Bienvenid@</h1>
+        <h6 class="h6 mb-3 font-weight-normal">Ingresa tus datos</h6>
+        <label for="inputuser" class="sr-only">Usuario</label>
+        <input type='text' name='username' value='' id="inputEmail" class="form-control" placeholder="Usuario" required autofocus="">
+        <div class="invalid-feedback">Usuario requerido</div>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password"  name='password' id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="invalid-feedback">Pass requeriday</div>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">Universidad técnica federico santa maría</p>
+      </form>
+   </div>     
+   </body>
+   
+</html>

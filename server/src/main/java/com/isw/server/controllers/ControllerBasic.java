@@ -31,13 +31,6 @@ public class ControllerBasic {
     // @GetMapping(path = {"/post", "/"}) // le digo a Spring boot que es un methodo
     // que puede ser accesado mediante POST
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
-            Model model) {
-        model.addAttribute("name", name);
-        return "greeting";
-    }
-
     @Autowired
     private participanteRepo participanteRepo;
     @Autowired
