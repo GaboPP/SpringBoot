@@ -27,10 +27,11 @@ public class proyecto{
     @Column(name = "state", nullable = false)
     private int state; // Donde 1: espera, 2: aprobado, 3: Rechazado
     @Column(name = "tipo", nullable = false)
-    private String tipo; // Externo o interno
+    private int tipo; // Externo o interno
 
     public proyecto() {
         this.state = 1;
+        this.tipo = 0;
     }
 
     public int getId_proyecto() {
@@ -73,11 +74,11 @@ public class proyecto{
         this.state = state;
     }
 
-    public String getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
