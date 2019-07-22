@@ -48,7 +48,7 @@ CREATE TABLE `proyecto` (
 
 LOCK TABLES `proyecto` WRITE;
 /*!40000 ALTER TABLE `proyecto` DISABLE KEYS */;
-INSERT INTO `proyecto` VALUES (1,NULL,NULL,NULL,'Proyecto 1','Proyecto de Prueba 1',1,1,NULL),(2,NULL,NULL,NULL,'Proyecto 2','Proyecto de Prueba 2',1,0,NULL),(3,NULL,NULL,NULL,'Proyecto 3','Proyecto de Prueba 3',1,1,NULL),(4,NULL,NULL,NULL,'Proyecto 4','Proyecto de Prueba 4',1,0,'holi'),(5,NULL,NULL,NULL,'Proyecto 5','Proyecto de Prueba 5',2,1,NULL),(6,NULL,NULL,NULL,'Proyecto 6','Proyecto de Prueba 6',1,1,NULL),(7,NULL,NULL,NULL,'Proyecto 7','Proyecto de Prueba 7',1,1,NULL),(8,NULL,NULL,NULL,'Proyecto 8','Proyecto de Prueba 8',3,0,NULL);
+INSERT INTO `proyecto` VALUES (1,NULL,NULL,NULL,'Proyecto 1','Proyecto de Prueba 1',1,1,NULL),(2,NULL,NULL,NULL,'Proyecto 2','Proyecto de Prueba 2',1,0,NULL),(3,NULL,NULL,NULL,'Proyecto 3','Proyecto de Prueba 3',1,1,NULL),(4,NULL,2,NULL,'Proyecto 4','Proyecto de Prueba 4',1,0,'holi'),(5,NULL,NULL,NULL,'Proyecto 5','Proyecto de Prueba 5',0,0,'prueba5'),(6,NULL,NULL,NULL,'Proyecto 6','Proyecto de Prueba 6',1,1,NULL),(7,NULL,NULL,NULL,'Proyecto 7','Proyecto de Prueba 7',1,1,NULL),(8,NULL,NULL,NULL,'Proyecto 8','Proyecto de Prueba 8',3,0,NULL);
 /*!40000 ALTER TABLE `proyecto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,3 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Dump completed on 2019-07-21 21:22:11
