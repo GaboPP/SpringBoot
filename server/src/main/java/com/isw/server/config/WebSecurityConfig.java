@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
         // /pagina en comun page requires login as participante or mentor.
         // If no login, it will redirect to /login page.
-        http.authorizeRequests().antMatchers("/").access("hasAnyRole('participante', 'mentor', 'supervisor')");
+        // http.authorizeRequests().antMatchers("/").access("hasAnyRole('participante', 'mentor', 'supervisor')");
  
         // When the user has logged in as XX.
         // But access a page that requires role YY,

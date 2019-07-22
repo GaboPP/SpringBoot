@@ -45,7 +45,7 @@
                 <form th:action="@{update_task/{name}/{id}(id=${proyecto_id}, name=${username})}" method="POST" th:object="${task}" class="needs-validation" novalidate="" width="100">
                     <div class="mb-3 form-group">
                       <label for="name">Nombre de la tarea</label>
-                      <input th:field="*{Name}" type="text" class="form-control" placeholder="Name" required="">
+                      <input th:field="*{nombre_tarea}" type="text" class="form-control" placeholder="Name" required="">
                       <div class="invalid-feedback">
                         Valid name is required.
                       </div>
@@ -91,10 +91,6 @@
       </div>
     </div>
   </div>
-
-
-
-
       <div class="media text-muted pt-3 border-bottom border-gray" th:each="proyecto: ${proyectos}">
         <svg class="bd-placeholder-img mr-2 rounded-circle" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
@@ -104,8 +100,8 @@
         </svg>
 
         <p class="media-body pb-3 mb-0 small lh-125">
-          <strong class="d-block text-gray-dark" th:text="${username}">@username</strong></p>
-        <p class="media-body pb-3 mb-0 small lh-125" th:text="${proyecto.Name}"></p>
+          <strong class="d-block text-gray-dark" th:text="${miembros_dicc[proyecto.participante]}">@username</strong></p>
+        <a class="media-body pb-3 mb-0 small lh-125" th:text="${proyecto.nombre_tarea}" th:href="@{task_detail/{id}(id=${proyecto.id_task})}"></a>
         <p class="media-body pb-3 mb-0 small lh-125">
           <strong class="d-block text-gray-dark" th:text="${proyecto.fecha_inicio}"></strong></p>
         </p>

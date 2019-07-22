@@ -45,11 +45,14 @@ public class TaskController{
         int proyecto_id = proyectos.get(0).getProyecto(); //de momento asumimos solo un proyecto por miembro
         List<MemberProyect> Member_proyect = memberProyectRepo.getmembers(proyecto_id);
         List<participante> miembros = new ArrayList<participante>();
+        Dictionary <Integer, String>members_dicc = new Hashtable<Integer, String>(); 
         for(int member = 0; member < Member_proyect.size(); member++){
             miembros.add(participanteRepo.getParts(Member_proyect.get(member).getId_participante()));
+            members_dicc.put(Member_proyect.get(member).getId_participante(), miembros.get(member).getName());
         }
         modelAndView.addObject("task", new task());
         modelAndView.addObject("miembros", miembros);
+        modelAndView.addObject("miembros_dicc", members_dicc);
         modelAndView.addObject("username", username);
         modelAndView.addObject("proyectos", proyectos);
         modelAndView.addObject("proyecto_id", proyecto_id);
@@ -60,7 +63,7 @@ public class TaskController{
     @RequestMapping(value = "update_task/{name}/{id}", method = { RequestMethod.POST })
     public RedirectView update_proyect_detail(@ModelAttribute task task, @PathVariable(required = true, name = "name") String name, @PathVariable(required = true, name = "id") int id) {
         
-        System.out.println(task.getName());
+        System.out.println(task.getNombre_tarea());
         Calendar cal = Calendar.getInstance();
         Date date = new java.sql.Date( cal.getTime().getTime() );
         task.setFecha_inicio(date);

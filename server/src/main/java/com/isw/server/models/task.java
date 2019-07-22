@@ -19,7 +19,7 @@ public class task {
     @Column(name = "participante") 
     private int participante;
     @Column(name = "Name", length = 255) 
-    private String Name;
+    private String nombre_tarea;
     @Column(name = "fecha_inicio") 
     private Date fecha_inicio;
     @Column(name = "fecha_fin") 
@@ -53,14 +53,6 @@ public class task {
         this.participante = participante;
     }
 
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
     public Date getFecha_inicio() {
         return fecha_inicio;
     }
@@ -91,5 +83,13 @@ public class task {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getNombre_tarea() {
+        return nombre_tarea;
+    }
+
+    public void setNombre_tarea(String nombre_tarea) {
+        this.nombre_tarea = nombre_tarea;
     }
 }
