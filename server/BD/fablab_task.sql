@@ -23,18 +23,20 @@ DROP TABLE IF EXISTS `task`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `task` (
-  `id_task` int(11) NOT NULL,
+  `id_task` int(11) NOT NULL AUTO_INCREMENT,
   `proyecto` int(11) NOT NULL,
-  `boss` int(11) NOT NULL,
+  `participante` int(11) NOT NULL,
   `Name` varchar(200) DEFAULT NULL,
   `fecha_inicio` datetime NOT NULL,
-  `fecha_fin` datetime NOT NULL,
+  `fecha_fin` datetime DEFAULT NULL,
+  `prioridad` varchar(45) NOT NULL,
+  `descripcion` longtext,
   PRIMARY KEY (`id_task`),
   KEY `proyecto_idx` (`proyecto`),
-  KEY `id_2_boss_idx` (`boss`),
-  CONSTRAINT `id_2_boss` FOREIGN KEY (`boss`) REFERENCES `boss` (`id_participante`) ON UPDATE CASCADE,
-  CONSTRAINT `id_proyecto` FOREIGN KEY (`proyecto`) REFERENCES `proyecto` (`id_proyecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `participante_foranea_idx` (`participante`),
+  CONSTRAINT `id_proyecto` FOREIGN KEY (`proyecto`) REFERENCES `proyecto` (`id_proyecto`),
+  CONSTRAINT `participante_foranea` FOREIGN KEY (`participante`) REFERENCES `participante` (`id_participante`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +45,7 @@ CREATE TABLE `task` (
 
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
+INSERT INTO `task` VALUES (1,1,1,'robar los diamantes de tijuana','2019-07-20 00:00:00',NULL,'URGENTE',NULL);
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-29 18:46:06
+-- Dump completed on 2019-07-21 21:22:09

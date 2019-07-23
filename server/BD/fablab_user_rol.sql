@@ -16,32 +16,39 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `reunion`
+-- Table structure for table `user_rol`
 --
 
-DROP TABLE IF EXISTS `reunion`;
+DROP TABLE IF EXISTS `user_rol`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `reunion` (
-  `id_reunion` int(11) NOT NULL,
-  `boss` int(11) NOT NULL,
-  `supervisor` int(11) NOT NULL,
-  `fecha_agendada` datetime NOT NULL,
-  PRIMARY KEY (`id_reunion`),
-  KEY `boss_idx` (`boss`),
-  KEY `supervisor_idx` (`supervisor`),
-  CONSTRAINT `id_boss` FOREIGN KEY (`boss`) REFERENCES `boss` (`id_participante`),
-  CONSTRAINT `supervisor` FOREIGN KEY (`supervisor`) REFERENCES `supervisor` (`id_supervisor`)
+CREATE TABLE `user_rol` (
+  `iduser_rol` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `id_participante` int(11) DEFAULT NULL,
+  `id_mentor` int(11) DEFAULT NULL,
+  `id_supervisor` int(11) DEFAULT NULL,
+  `rol_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`iduser_rol`),
+  KEY `participante_idx` (`id_participante`),
+  KEY `mentor_idx` (`id_mentor`),
+  KEY `user_idx` (`user_id`),
+  KEY `id_supervisor_idx` (`id_supervisor`),
+  CONSTRAINT `id_supervisor` FOREIGN KEY (`id_supervisor`) REFERENCES `supervisor` (`id_supervisor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentor` FOREIGN KEY (`id_mentor`) REFERENCES `mentor` (`id_mentor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `participante` FOREIGN KEY (`id_participante`) REFERENCES `participante` (`id_participante`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reunion`
+-- Dumping data for table `user_rol`
 --
 
-LOCK TABLES `reunion` WRITE;
-/*!40000 ALTER TABLE `reunion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reunion` ENABLE KEYS */;
+LOCK TABLES `user_rol` WRITE;
+/*!40000 ALTER TABLE `user_rol` DISABLE KEYS */;
+INSERT INTO `user_rol` VALUES (1,1,1,NULL,NULL,'participante'),(2,2,NULL,2,NULL,'mentor'),(3,3,NULL,NULL,1,'supervisor');
+/*!40000 ALTER TABLE `user_rol` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-29 18:46:08
+-- Dump completed on 2019-07-21 21:22:11

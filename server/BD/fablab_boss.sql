@@ -28,8 +28,8 @@ CREATE TABLE `boss` (
   `reunion` int(11) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_participante`),
-  KEY `task_idx` (`task`),
   KEY `reunion_id_idx` (`reunion`),
+  KEY `task_idx` (`task`),
   CONSTRAINT `reunion_id` FOREIGN KEY (`reunion`) REFERENCES `reunion` (`id_reunion`),
   CONSTRAINT `task` FOREIGN KEY (`task`) REFERENCES `task` (`id_task`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-29 18:46:07
+-- Dump completed on 2019-07-21 21:22:10

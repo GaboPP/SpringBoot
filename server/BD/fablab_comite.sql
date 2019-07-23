@@ -16,32 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `supervisor`
+-- Table structure for table `comite`
 --
 
-DROP TABLE IF EXISTS `supervisor`;
+DROP TABLE IF EXISTS `comite`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `supervisor` (
-  `id_supervisor` int(11) NOT NULL,
-  `proyecto` int(11) DEFAULT NULL,
-  `permisos` int(11) NOT NULL,
-  `reunion` int(11) DEFAULT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_supervisor`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `comite` (
+  `id_comite` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_comite`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `supervisor`
+-- Dumping data for table `comite`
 --
 
-LOCK TABLES `supervisor` WRITE;
-/*!40000 ALTER TABLE `supervisor` DISABLE KEYS */;
-INSERT INTO `supervisor` VALUES (1,1,0,NULL,'rivera','123');
-/*!40000 ALTER TABLE `supervisor` ENABLE KEYS */;
+LOCK TABLES `comite` WRITE;
+/*!40000 ALTER TABLE `comite` DISABLE KEYS */;
+INSERT INTO `comite` VALUES (1,'Camilo','camilove@gmail.com');
+/*!40000 ALTER TABLE `comite` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

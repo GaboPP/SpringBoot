@@ -16,32 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `supervisor`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `supervisor`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `supervisor` (
-  `id_supervisor` int(11) NOT NULL,
-  `proyecto` int(11) DEFAULT NULL,
-  `permisos` int(11) NOT NULL,
-  `reunion` int(11) DEFAULT NULL,
-  `nombre` varchar(200) NOT NULL,
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(45) NOT NULL,
   `password` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_supervisor`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_id_UNIQUE` (`user_id`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `supervisor`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `supervisor` WRITE;
-/*!40000 ALTER TABLE `supervisor` DISABLE KEYS */;
-INSERT INTO `supervisor` VALUES (1,1,0,NULL,'rivera','123');
-/*!40000 ALTER TABLE `supervisor` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'user1','$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu'),(2,'user2','$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu'),(3,'user3','$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
