@@ -5,4 +5,5 @@ import com.isw.server.models.proyecto;
 
 public interface proyectoRepo extends JpaRepository<proyecto, Integer> {
 
+    
 }
