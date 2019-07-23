@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.isw.server.models.proyecto;
-import com.isw.server.repository.proyectoRepo;
+import com.isw.server.repository.ProyectoRepo;
 
 import com.isw.server.models.MemberProyect;
 import com.isw.server.models.mentor;
@@ -29,7 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProyectoController{
 
     @Autowired
-    proyectoRepo proyectoRepo;
+    ProyectoRepo proyectoRepo;
     @Autowired
     private participanteRepo participanteRepo;
     @Autowired
