@@ -23,7 +23,7 @@ import com.isw.server.models.proyecto;
 import com.isw.server.repository.memberProyectRepo;
 import com.isw.server.repository.mentorRepo;
 import com.isw.server.repository.participanteRepo;
-import com.isw.server.repository.ProyectoRepo;
+import com.isw.server.repository.proyectoRepo;
 
 @Controller // Así se define un controlador
 // @RequestMapping("/data") //Para definirlo como endpoint
@@ -34,7 +34,7 @@ public class ControllerBasic {
     @Autowired
     private participanteRepo participanteRepo;
     @Autowired
-    private ProyectoRepo proyectoRepo;
+    private proyectoRepo proyectoRepo;
     @Autowired
     private memberProyectRepo memberProyectRepo;
     @Autowired

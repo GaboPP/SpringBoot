@@ -1,6 +1,6 @@
 package com.isw.server.controllers;
 
-import com.isw.server.repository.ProyectoRepo;
+import com.isw.server.repository.proyectoRepo;
 import com.isw.server.utils.webUtils;
 
 import java.security.Principal;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController{
 
     @Autowired
-    ProyectoRepo proyectoRepo;
+    proyectoRepo proyectoRepo;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String loginPage(@RequestParam(required = false, value = "error") Boolean error,Model model) {
