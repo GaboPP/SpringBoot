@@ -16,24 +16,19 @@
   <title>Proyectos</title>
 </head>
 
-<body>
+<body th:style="'background: url('+ @{/images/fondo.svg}+') no-repeat;background-size: cover;'">
   <div th:insert="navbar :: navigationBar"></div>
   <!-- Page Content -->
   <div class="container">
 
     <!-- Page Heading -->
     <h1 class="my-4">Proyectos
-      <small>Todos</small>
     </h1>
+    <hr>
 
     <!-- Project One -->
     <div th:each="proyecto : ${proyectos}">
       <div class="row">
-        <div class="col-sm-3">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/240x240" alt="">
-          </a>
-        </div>
         <div class="col-sm-7">
           <h3 th:text="${proyecto.nombre}">Project One</h3>
           <p th:text="${proyecto.detalle}">Description</p>
@@ -55,9 +50,6 @@
     </div>
 
     <!-- /.row -->
-
-    <hr>
-
     <!-- Pagination -->
     <ul class="pagination justify-content-center">
       <li class="page-item">
