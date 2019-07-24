@@ -30,7 +30,9 @@ public class proyecto{
     private String detalle;
     
     public proyecto() {
-        this.state = 1;
+        this.id_comite = null;
+        this.id_mentor = null;
+        this.boss = null;
     }
     public int getId_proyecto() {
         return id_proyecto;

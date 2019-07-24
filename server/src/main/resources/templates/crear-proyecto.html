@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	<link th:href="@{/bootstrap-4.0.0-dist/css/bootstrap.min.css}" rel="stylesheet" href="../static/bootstrap-4.0.0-dist/css/bootstrap.min.css"
+	 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title>other title</title>
+</head>
+
+<body>
+	<div th:insert="navbar :: navigationBar"></div>
+	<div class="container">
+		<form method="post" th:action="@{/crear-proyecto/}">
+			<div th:object="${part0}">
+				<div class="form-group">
+					<label for="Nombre del encargado">Nombre del encargado</label>
+					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				</div>
+				<div class="form-group">
+					<label for="Correo del encargado">Correo del encargado</label>
+					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				</div>
+			</div>
+			<div th:object="${part1}">
+				<div class="form-group">
+					<label for="Nombre del encargado">Nombre del miembro 1</label>
+					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				</div>
+				<div class="form-group">
+					<label for="Correo del encargado">Correo del miembro 1</label>
+					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				</div>
+			</div>
+			<div th:object="${part2}">
+				<div class="form-group">
+					<label for="Nombre del encargado">Nombre del miembro 2</label>
+					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				</div>
+				<div class="form-group">
+					<label for="Correo del encargado">Correo del miembro 2</label>
+					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				</div>
+			</div>
+			<div th:object="${part3}">
+				<div class="form-group">
+					<label for="Nombre del encargado">Nombre del miembro 3</label>
+					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				</div>
+				<div class="form-group">
+					<label for="Correo del encargado">Correo del miembro 3</label>
+					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				</div>
+			</div>
+			<div th:object="${part4}">
+				<div class="form-group">
+					<label for="Nombre del encargado">Nombre del miembro 4</label>
+					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				</div>
+				<div class="form-group">
+					<label for="Correo del encargado">Correo del miembro 4</label>
+					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				</div>
+			</div>
+			<div th:object="${part5}">
+				<div class="form-group">
+					<label for="Nombre del encargado">Nombre del miembro 5</label>
+					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				</div>
+				<div class="form-group">
+					<label for="Correo del encargado">Correo del miembro 5</label>
+					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				</div>
+			</div>
+			<div th:object="${proyecto}">
+				<div class="form-group">
+					<label for="Nombre Proyecto">Nombre del proyecto</label>
+					<input type="text" th:field="*{nombre}" class="form-control" id="NombreProyecto" placeholder="Nombre del proyecto">
+				</div>
+				<div class="form-group">
+					<label for="Resumen Ejecutivo">Resumen Ejecutivo</label>
+					<textarea th:field="*{detalle}" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción del proyecto"></textarea>
+				</div>
+			</div>
+			<div>
+				<label for="Tipo proyecto">Tipo de proyecto</label>
+				<div class="custom-control custom-radio">
+					<input type="radio" class="custom-control-input" id="defaultUnchecked" value="1" name="tipo" checked>
+					<label class="custom-control-label" for="defaultUnchecked">Interno</label>
+				</div>
+				<div class="custom-control custom-radio">
+					<input type="radio" class="custom-control-input" id="defaultChecked" value="0" name="tipo">
+					<label class="custom-control-label" for="defaultChecked">Externo</label>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script th:src="@{/bootstrap-4.0.0-dist/js/bootstrap.min.js}" src="../static/bootstrap-4.0.0-dist/js/bootstrap.min.js"
+	 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
