@@ -28,7 +28,7 @@ CREATE TABLE `participante` (
   `email` varchar(255) NOT NULL,
   `permisos` int(11) NOT NULL,
   PRIMARY KEY (`id_participante`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `participante` (
 
 LOCK TABLES `participante` WRITE;
 /*!40000 ALTER TABLE `participante` DISABLE KEYS */;
-INSERT INTO `participante` VALUES (1,'Maguito','hermosoguapeton@terriblerico.com',2);
+INSERT INTO `participante` VALUES (1,'Maguito','hermosoguapeton@terriblerico.com',0),(2,'Don homero J. sampson','tompsons@h.com',0),(3,'yian','jianmeaula@uf.com',0),(4,'abel','abelinmexico@muro.mx',0);
 /*!40000 ALTER TABLE `participante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-06 16:45:32
+-- Dump completed on 2019-07-21 21:22:10

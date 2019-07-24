@@ -18,4 +18,27 @@ public class MemberProyect{
     private int id_participante;
     @Column(name = "jefe")
     private int jefe;
+    public int getId_proyecto() {
+        return id_proyecto;
+    }
+
+    public void setId_proyecto(int id_proyecto) {
+        this.id_proyecto = id_proyecto;
+    }
+
+    public int getId_participante() {
+        return id_participante;
+    }
+
+    public void setId_participante(int id_participante) {
+        this.id_participante = id_participante;
+    }
+
+    public int getJefe() {
+        return jefe;
+    }
+
+    public void setJefe(int jefe) {
+        this.jefe = jefe;
+    }
 }
