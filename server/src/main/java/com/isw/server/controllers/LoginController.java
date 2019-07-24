@@ -1,7 +1,5 @@
 package com.isw.server.controllers;
 
-import java.util.List;
-
 import com.isw.server.repository.proyectoRepo;
 import com.isw.server.utils.webUtils;
 
