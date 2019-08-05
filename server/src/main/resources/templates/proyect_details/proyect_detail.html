@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../../static/css/proyect_detail.css" th:href="@{/css/proyect_detail.css}">
+  <title>Proyecto detalle</title>
+</head>
+
+<body th:style="'background: url('+ @{/images/fondo.svg}+') no-repeat;background-size: cover;'">
+  <div th:insert="navbar :: navigationBar"></div>
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" th:src="@{/images/reports.png}" src="../../static/images/reports.png" alt="" width="128" height="128">
+      <h2>Revisar Proyecto</h2>
+      <p class="lead">Aquí podrás revisar la información específica del proyecto, además de dejar comentarios y
+        evaluarlo
+        (dejándolo en espera por más tiempo ⌚, rechazándolo ✘ o aceptándolo! ✔)</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 order-md-1 mb-6">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Detalle Proyecto</span>
+          <span class="badge badge-secondary badge-pill">P</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Nombre del Proyecto</h6>
+              <small class="text-muted"><p th:text="${proyecto.nombre}"></p></small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Participante</h6>
+              <small class="text-muted" th:text="${participante.Name}"></small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Detalles</h6>
+              <small class="text-muted"><p th:text="${proyecto.detalle}"></p></small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">tipo</h6>
+              <small class="text-muted">
+                <span th:if="${proyecto.tipo} == 1"><p th:text="Interno">I</p></span>
+                <span th:if="${proyecto.tipo} == 0"><p th:text="Externo">I</p></span>
+              </small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <h6 class="my-0">Fecha de creación</h6>
+            <span class="text-muted">06/06/06</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 order-md-2">
+        <h4 class="mb-3">Evaluación Proyecto</h4>
+        <form th:action="@{update_proyect_detail/{id}(id=${proyecto.id_proyecto})}" method="POST" th:object="${proyecto}" class="needs-validation" novalidate="">
+          <div class="row">
+            <div class="col-md-12 mb-12">
+              <div class="form-group">
+                <label for="comment">Comentarios</label>
+                <textarea th:field="*{comentario}" th:value="*{comentario}" class="form-control" id="comment" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+
+          <h4 class="mb-3">Evaluación</h4>
+
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input th:field="*{state}" th:value="3" id="state" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+              <label class="custom-control-label" for="state">Aceptado</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input th:field="*{state}" th:value="2" id="rechazado" name="paymentMethod" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="rechazado">Rechazado</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input th:field="*{state}" th:value="1" id="wait" name="paymentMethod" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="wait">En espera</label>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Mentor</label>
+            </div>
+            <select th:field="*{id_mentor}" class="custom-select" id="inputGroupSelect01">
+              <option th:value="${Null}" selected>Choose...</option>
+              <option th:each="mentor : ${mentores}" th:value="${mentor.id_mentor}" th:text="${mentor.Name}"></option>
+            </select>
+          </div>
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar Evaluación</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
