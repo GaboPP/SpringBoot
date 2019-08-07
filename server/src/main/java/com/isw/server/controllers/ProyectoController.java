@@ -36,7 +36,7 @@ public class ProyectoController{
     @Autowired
     private mentorRepo mentorRepo;
 
-    @GetMapping(path = {""})
+    @GetMapping(path = {"/evaluar"})
     public ModelAndView proyectos() {
         ModelAndView modelAndView = new ModelAndView("proyectos");
         List<proyecto> proyects = proyectoRepo.findAll();
@@ -45,7 +45,7 @@ public class ProyectoController{
         return modelAndView;
     }
     
-    @GetMapping(path = {"/evaluar"})
+    @GetMapping(path = {""})
     public String evaluar(Model model){
         List<proyecto> proyects = proyectoRepo.findAll();
         List<proyecto> proyectos = proyects.stream().filter( (p) -> { return p.getState() == 1;}).collect(Collectors.toList());

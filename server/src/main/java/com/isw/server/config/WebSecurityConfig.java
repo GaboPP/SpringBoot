@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
  
         // The pages does not require login
-        http.authorizeRequests().antMatchers("/css/**","/static/**","/images/**","/login", "/logout").permitAll();
+        http.authorizeRequests().antMatchers("/css/**","/static/**","/images/**","/login", "/logout", "/crear-proyecto/**").permitAll();
  
         // /pagina en comun page requires login as participante or mentor.
         // If no login, it will redirect to /login page.

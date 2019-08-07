@@ -2,15 +2,13 @@
 <html lang="es">
 <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment = "navigationBar" th:style="'background-color: #f8f9faa1!important'">
     <img class="mb-4" th:src="@{/images/fablab.png}" src="../../static/images/fablab.png" alt="" width="auto" height="48" style="margin-right: .5%">
-    <a th:href="@{/proyectos}" class="nav-item nav-link" style="color: grey;"> Inicio </a>
+    <a th:href="@{/#}" class="nav-item nav-link" style="color: grey;"> Inicio </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" th:href="@{/proyectos}" href="./proyectos.html">Proyectos</a>
-            <a class="nav-item nav-link" th:href="@{/proyectos/evaluar}" href="./proyectos.html">Evaluados</a>
             <a class="nav-item nav-link" th:href="@{/login}" href="./proyectos.html">Log Out</a>
         </div>
     </div>
