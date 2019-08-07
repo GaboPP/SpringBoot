@@ -69,8 +69,7 @@ public class ProyectoController{
         return mentorRepo.findAll();
     }
     @GetMapping("/proyect_detail/{id}")
-    public ModelAndView getproyect_detail(@PathVariable(required = true, name = "id") int id
-    ){        
+    public ModelAndView getproyect_detail(@PathVariable(required = true, name = "id") int id){        
         List<participante> participante = this.get_memberProyect(id);
 
         ModelAndView modelAndView = new ModelAndView("proyect_details/proyect_detail");
@@ -90,8 +89,6 @@ public class ProyectoController{
         } else {
             proyecto.setBoss(proyecto_bd.get(0).getBoss());
         }
-
-
 
         proyecto.setTipo(proyecto_bd.get(0).getTipo());
         proyecto.setNombre(proyecto_bd.get(0).getNombre());

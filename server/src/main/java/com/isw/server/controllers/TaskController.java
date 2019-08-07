@@ -1,8 +1,13 @@
 package com.isw.server.controllers;
 
-import java.util.*;
-
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.isw.server.models.MemberProyect;
 import com.isw.server.models.participante;
 import com.isw.server.models.task;
@@ -22,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+
 @Controller
 @RequestMapping("/tasks")
 public class TaskController{
@@ -29,11 +35,11 @@ public class TaskController{
     @Autowired
     private userRepo appUserDAO;
     @Autowired
-    taskRepo taskRepo;
+    private taskRepo taskRepo;
     @Autowired
-    memberProyectRepo memberProyectRepo;
+    private memberProyectRepo memberProyectRepo;
     @Autowired
-    participanteRepo participanteRepo;
+    private participanteRepo participanteRepo;
     
     @GetMapping(path = {"/{Name}"})
     public ModelAndView tasks(@PathVariable(required = true, name = "Name") String username){
@@ -77,5 +83,19 @@ public class TaskController{
         taskRepo.save(task);
         String ruta = "/tasks/" + name;
         return new RedirectView(ruta);
+    }
+
+    @GetMapping(value = "/get_participantes/{id}")
+    public List<task> get_Task(int id_task) {
+        return taskRepo.findAll().stream().filter( (p) -> { return p.getId_task() == id_task;}).collect(Collectors.toList());
+    }
+
+    @GetMapping(value="/task_detail/{id}")
+    public ModelAndView task_detail(@PathVariable(required = true, name = "id") int id){
+        List<task> tareas = this.get_Task(id);
+
+        ModelAndView modelAndView = new ModelAndView("taskBoard/taskDetails");
+        modelAndView.addObject("tareas", tareas.get(0));
+        return modelAndView;
     }
 }
