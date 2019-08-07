@@ -12,74 +12,46 @@
 	<link th:href="@{/bootstrap-4.0.0-dist/css/bootstrap.min.css}" rel="stylesheet" href="../static/bootstrap-4.0.0-dist/css/bootstrap.min.css"
 	 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<title>other title</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+	<title>Enviar Proyecto</title>
 </head>
 
+
 <body th:style="'background: url('+ @{/images/fondo_form.svg}+') no-repeat;background-size: cover;'">
+	
+	<div th:insert="navbar :: navigationBar"></div>
 	<div class="container" style="margin: 5%">
-		<div class="card shadow rounded" style="padding: 5%; background-color: rgba(255, 255, 255, 0.466)">
+    <div class="card shadow rounded" style="padding: 5%; background-color: rgba(255, 255, 255, 0.466)">
 			<h1>Formulario Inscripción Proyecto</h1>
+
 		<form method="post" th:action="@{/crear-proyecto/}">
-			<div th:object="${part0}">
-				<div class="form-group">
-					<label for="Nombre del encargado">Nombre del encargado</label>
-					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				<div th:object="${part0}">
+					<div class="form-group">
+						<label for="Nombre del encargado">Nombre del encargado</label>
+						<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+					</div>
+					<div class="form-group">
+						<label for="Correo del encargado">Correo del encargado</label>
+						<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+					</div>
 				</div>
-				<div class="form-group">
-					<label for="Correo del encargado">Correo del encargado</label>
-					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				<div class="col-sm-1">
+					<label>Miembros</label>
 				</div>
-			</div>
-			<div th:object="${part1}">
-				<div class="form-group">
-					<label for="Nombre del encargado">Nombre del miembro 1</label>
-					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
+				<div class="input-group-btn">
+					<button class="btn btn-success" type="button" onclick="education_fields();"> <span class="glyphicon glyphicon-plus"
+						 aria-hidden="true"></span> </button>
 				</div>
-				<div class="form-group">
-					<label for="Correo del encargado">Correo del miembro 1</label>
-					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
+				<div class="panel panel-default">
+					<div id="education_fields" >
+
+					</div>
 				</div>
-			</div>
-			<div th:object="${part2}">
-				<div class="form-group">
-					<label for="Nombre del encargado">Nombre del miembro 2</label>
-					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
-				</div>
-				<div class="form-group">
-					<label for="Correo del encargado">Correo del miembro 2</label>
-					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
-				</div>
-			</div>
-			<div th:object="${part3}">
-				<div class="form-group">
-					<label for="Nombre del encargado">Nombre del miembro 3</label>
-					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
-				</div>
-				<div class="form-group">
-					<label for="Correo del encargado">Correo del miembro 3</label>
-					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
-				</div>
-			</div>
-			<div th:object="${part4}">
-				<div class="form-group">
-					<label for="Nombre del encargado">Nombre del miembro 4</label>
-					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
-				</div>
-				<div class="form-group">
-					<label for="Correo del encargado">Correo del miembro 4</label>
-					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
-				</div>
-			</div>
-			<div th:object="${part5}">
-				<div class="form-group">
-					<label for="Nombre del encargado">Nombre del miembro 5</label>
-					<input type="text" th:field="*{Name}" class="form-control" id="NombreEncargado">
-				</div>
-				<div class="form-group">
-					<label for="Correo del encargado">Correo del miembro 5</label>
-					<input type="text" th:field="*{email}" class="form-control" id="CorreoEncargado">
-				</div>
-			</div>
+				<div class="clear"></div>
+
 			<div th:object="${proyecto}">
 				<div class="form-group">
 					<label for="Nombre Proyecto">Nombre del proyecto</label>
@@ -106,13 +78,43 @@
 		</div>
 	</div>
 	<!-- Optional JavaScript -->
+	<script type="text/javascript">
+		var room = 0;
+		function education_fields() {
+
+			if (room == 0) {
+				var objTo = document.getElementById('education_fields')
+				var divtest = document.createElement("div");
+				divtest.innerHTML = '<div class="col-sm-5 nopadding"><label>Nombre</label></div><div class="col-sm-7 nopadding"><label>Correo</label></div>';
+				objTo.appendChild(divtest)
+			}
+
+			
+			var objTo = document.getElementById('education_fields')
+			var divtest = document.createElement("div");
+			divtest.setAttribute("class", "form-group removeclass" + room);
+			var rdiv = 'removeclass' + room;
+			divtest.innerHTML = '<div class="col-sm-5 nopadding"><div class="form-group"> <input type="text" name="names['+room+']" class="form-control" " placeholder="Nombre"></div></div><div class="col-sm-5 nopadding"><div class="form-group"> <input type="text"  class="form-control" name="mails['+room+']" placeholder="Correo"></div></div><div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields(' + room + ');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button></div></div></div></div><div class="clear"></div>';
+
+			objTo.appendChild(divtest)
+
+			room++;
+		}
+		function remove_education_fields(rid) {
+			$('.removeclass' + rid).remove();
+			room--;
+		}
+
+	</script>
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 	 crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	 crossorigin="anonymous"></script>
 	<script th:src="@{/bootstrap-4.0.0-dist/js/bootstrap.min.js}" src="../static/bootstrap-4.0.0-dist/js/bootstrap.min.js"
 	 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
