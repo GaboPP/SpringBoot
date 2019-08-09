@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller //Así se define un controlador
 @RequestMapping("/crear-proyecto") //Para definirlo como endpoint
@@ -33,10 +34,9 @@ public class ControllerCrearProyecto {
     }
 
     @PostMapping(path = "")
-    public String saveProyecto(proyecto proy, participante part0, @ModelAttribute ListParticipante miembros, @RequestParam("tipo") String tipo){
-        proy.setTipo(tipo);
-        proy.setState(1);
-        proy.setComentario("");
+    public String saveProyecto(proyecto proy, participante part0, @ModelAttribute ListParticipante miembros,
+            @RequestParam("tipo") String tipo) {
+        
         proyecto.save(proy);
 
         participante.save(part0);
@@ -46,6 +46,6 @@ public class ControllerCrearProyecto {
             aux.setName(miembros.getNames().get(i));
             participante.save(aux);
         }
-        return "index";
+        return "index"; // new RedirectView("/login");
     }
 }

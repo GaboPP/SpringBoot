@@ -3,12 +3,13 @@ package com.isw.server.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class proyecto{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_proyecto")
     private int id_proyecto;
     @Column(name = "nombre", length = 45) 
